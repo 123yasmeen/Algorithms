@@ -53,9 +53,14 @@ int MergeSort(int arr[], int n)
 int main()
 {
 	int arr[5] = { 3,7,2,1,0 };
+	int arr1[4] = { 4,8,6,5 };
 	int n = sizeof(arr) / sizeof(arr[0]);
+	int n1 = sizeof(arr1) / sizeof(arr1[0]);
 	MergeSort(arr, n);
-	for (int i = 0;i < 5;i++)
-		printf("%d ", arr[i]);
+	MergeSort(arr1, n1);
+	int resarr[n + n1];
+	Merge(arr, arr1, resarr, n1 + n, n);
+	for (int i = 0;i < (n + n1);i++)
+		printf("%d ", resarr[i]);
 	return 0;
 }
